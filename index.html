@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Manuela Masjoan, Rocio Navarro y Stefania Poracchia" />
+
+
+<title>Análisis de predicción de eventos cardíacos</title>
+
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="index_files/style.css" type="text/css" />
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<div class="row">
+<div class="col s12 m3">
+<div class="table cover">
+<div class="cover-card table-cell table-middle">
+<span class="author_name">Análisis de predicción de eventos cardíacos</span>
+<span class="author_bio mbm">Manuela Masjoan, Rocio Navarro y Stefania Poracchia</span>
+<span class="author_bio mbm">5/21/2020</span>
+</div>
+</div>
+</div>
+
+
+<div class="col s12 m9">
+<div class="post-listing">
+<div id="TOC" class="toc">
+<ul>
+<li><a href="#introducción">Introducción</a></li>
+<li><a href="#análisis-de-los-datos">Análisis de los datos</a></li>
+<li><a href="#predictor">Predictor</a></li>
+</ul>
+</div>
+
+<div id="post">
+<article class="post-content">
+<div id="introducción" class="section level2">
+<h2>Introducción</h2>
+<p>Para el desarrollo de este reporte, se utilizó un dataset proporcionado por el servicio de Cardiología del Hospital Austral, con el propósito de analizar los datos de 1000 pacientes muestra que ingresaron a la guardia, y decidir así, si internar o no a un nuevo paciente. Se trata de un dataset con variables en su mayoría binarias, sin datos faltantes, que posee información tal como el género, la edad, presencia de problemas coronarios, cantidad de episodios previos, presencia de hipertensión y otras patologías que presenten alguna correlación.</p>
+</div>
+<div id="análisis-de-los-datos" class="section level2">
+<h2>Análisis de los datos</h2>
+<div id="eventos-según-género-y-edad" class="section level4">
+<h4>Eventos según género y edad</h4>
+<p><img src="index_files/figure-html/Grafico%20distribucio%CC%81n%20de%20pacientes%20con%20eventos%20segu%CC%81n%20edad%20y%20ge%CC%81nero-1.png" /><!-- --></p>
+<p><strong>No se observan casos de pacientes con presencia de problemas coronarios antes de los 30 años.</strong> Las mujeres tienden a presentar problemas coronarios principalmente entre los 60 y 80 años mientras que los hombres entre los 50 y 75.</p>
+</div>
+<div id="eventos-según-el-género" class="section level4">
+<h4>Eventos según el género</h4>
+<p><img src="index_files/figure-html/Grafico%20distribucion%20eventos%20y%20obesidad%20por%20sexo-1.png" /><!-- --></p>
+<p>Se observa que aproximadamente un <strong>80% de los pacientes con problemas coronarios son hombres.</strong></p>
+</div>
+<div id="eventos-según-el-tipo-de-dolor" class="section level4">
+<h4>Eventos según el tipo de dolor</h4>
+<p>Se analiza el porcentaje de pacientes con eventos que presentan dolor actualmente y las características de los mismos.</p>
+<table class="table table-striped" style="width: auto !important; float: left; margin-right: 10px;">
+<thead>
+<tr>
+<th style="text-align:left;background-color: gray !important;">
+Dolor
+</th>
+<th style="text-align:right;background-color: gray !important;">
+Porcentaje
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;background-color: light gray !important;">
+Presenta
+</td>
+<td style="text-align:right;background-color: light gray !important;">
+82.64
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: light gray !important;">
+No presenta
+</td>
+<td style="text-align:right;background-color: light gray !important;">
+17.36
+</td>
+</tr>
+</tbody>
+</table>
+<p><img src="index_files/figure-html/Grafico%20frecuencia%20de%20eventos%20y%20dolor%20segun%20el%20tipo-1.png" /><!-- --></p>
+<p>Observamos que el tipo de dolor del paciente se relaciona con la presencia de un evento cardíaco.Esto se debe a que <strong>quienes manifiestan tener un dolor opresivo tienen mayor frecuencia de eventos</strong> en comparación a pacientes con otro tipo de dolor.</p>
+</div>
+<div id="eventos-en-pacientes-con-dislipemia" class="section level4">
+<h4>Eventos en pacientes con dislipemia</h4>
+<p>Se analiza el porcentaje de pacientes con eventos que presenta dislipemia y la cantidad de episodios los mismos.</p>
+<table class="table table-striped" style="width: auto !important; float: left; margin-right: 10px;">
+<thead>
+<tr>
+<th style="text-align:left;background-color: gray !important;">
+Dislipemia
+</th>
+<th style="text-align:right;background-color: gray !important;">
+Porcentaje
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;background-color: light gray !important;">
+Presenta
+</td>
+<td style="text-align:right;background-color: light gray !important;">
+57.85
+</td>
+</tr>
+<tr>
+<td style="text-align:left;background-color: light gray !important;">
+No presenta
+</td>
+<td style="text-align:right;background-color: light gray !important;">
+42.15
+</td>
+</tr>
+</tbody>
+</table>
+<p><img src="index_files/figure-html/Grafico%20distribucion%20de%20eventos%20de%20dislipemia-1.png" /><!-- --></p>
+<p>Al comparar los grupos en términos de dislipemia podemos observar que <strong>el grupo que padece la enfermedad, en su mayoría, tuvo más de un episodio.</strong> Mientras que para aquellos que no la padecen, aproximadamente la mitad tuvo un único episodio y la otra mitad más de uno.</p>
+</div>
+<div id="incidencia-de-variables-para-casos-de-hipertensión" class="section level4">
+<h4>Incidencia de variables para casos de Hipertensión</h4>
+<p>Siendo la hipertensión el síntoma más comun presente entre aquellos pacientes con eventos, se decició lograr un gráfico que permita observar que otras variables del dataset estan relacionadas en mayor medida con ella.</p>
+<p><img src="index_files/figure-html/Grafico%20de%20incidencia%20de%20variables%20para%20casos%20de%20Hipertensio%CC%81n-1.png" /><!-- --></p>
+<p>Podemos observar que la variable modificación posicion de respiración afecta en mayor medida a las mujeres con hipertensión que a los hombres que tambien la padecen. A su vez, los niveles de lipidos impactan en mayor medida a los hombres hipertensos, y con respecto a los antecedentes familiares, si bien no presentan tanta correlación con esta patología, se dan en igual proporción para ambos sexos.</p>
+</div>
+<div id="síndrome-coronario-agudo-previo-o-historia-de-revascularización-en-pacientes-con-eventos" class="section level4">
+<h4>Síndrome coronario agudo previo o historia de revascularización en pacientes con eventos</h4>
+<p><img src="index_files/figure-html/Grafico%20de%20SCA%20en%20pacientes%20con%20eventos%20segu%CC%81n%20la%20edad-1.png" /><!-- --></p>
+<p>Se observa que aproximadamente un <strong>60% de los pacientes mayores de 65 con eventos coronarios presentan un síndrome coronario agudo previo o historia de revascularización</strong>, a diferencia de aquellos pacientes con eventos menores a 65 donde este porcentaje se aproxima al 23%.</p>
+</div>
+</div>
+<div id="predictor" class="section level2">
+<h2>Predictor</h2>
+<div id="selección-de-variables" class="section level3">
+<h3>Selección de variables</h3>
+<div id="correlación-de-los-datos" class="section level4">
+<h4>Correlación de los datos</h4>
+<p>El siguiente gráfico muestra la correlación entre las variables del dataset.Se pueden distinguir zonas más oscuras que representan mayor correlación entre las variables.</p>
+<p><img src="index_files/figure-html/corrplot-1.png" /><!-- --></p>
+</div>
+<div id="segunda-preseleccion" class="section level4">
+<h4>Segunda preseleccion</h4>
+<p>A su vez utilizamos otro método que selecciona las variables que tienen mayor repercusión a la hora de tener un evento. Este metodo genera una tabla con una lista de variables ordenadas segun el valor de dispersion (desvío) propio de cada una. Decidimos elegir aquellas de menor desvio para formar parte de la preselección.</p>
+</div>
+<div id="selección-final" class="section level4">
+<h4>Selección final</h4>
+<p>Teniendo en cuenta los métodos previos y el análisis realizado anteriormente decidimos tener en cuenta las siguientes variables a la hora de realizar la predicción:</p>
+<ul>
+<li>Edad</li>
+<li>Género</li>
+<li>Hipertensión</li>
+<li>Dislipemia</li>
+<li>SCA previo o historia de revascularización</li>
+<li>Mismo dolor evento previo</li>
+<li>Diabético</li>
+<li>Fumador</li>
+<li>Obesidad</li>
+<li>Presenta dolor actual</li>
+<li>Modifica respiración pocisión</li>
+<li>Características del dolor</li>
+</ul>
+</div>
+</div>
+<div id="modelo-de-predicción" class="section level3">
+<h3>Modelo de predicción</h3>
+<p>Se utilizó un modelo de regresión logística para predecir si un paciente va presentar o no problemas coronarios. Se separaron los datos del dataset de tal manera que 70% se utilizaron para generar el modelo de predicción mientras que el restante para probar la calidad del mismo.</p>
+<div id="calidad-del-modelo" class="section level4">
+<h4>Calidad del modelo</h4>
+<p>Para evaluar la calidad del modelo se utilizó la curva AUROC. Ella nos proporcionó este resultado:</p>
+<p><img src="index_files/figure-html/prediccio%CC%81n-1.png" /><!-- --></p>
+<p>Mails:</p>
+<ul>
+<li><a href="mailto:manuela.masjoan@ing.austral.edu.ar" class="email">manuela.masjoan@ing.austral.edu.ar</a></li>
+<li><a href="mailto:rocio.navarro@ing.austral.edu.ar" class="email">rocio.navarro@ing.austral.edu.ar</a></li>
+<li><a href="mailto:stefania.poracchia@ing.austral.edu.ar" class="email">stefania.poracchia@ing.austral.edu.ar</a></li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
